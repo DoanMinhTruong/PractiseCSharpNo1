@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3ca662c5-23bc-4fb7-b728-d8cb2c336a60": {
+      "ProjectGuid": "3ca662c5-23bc-4fb7-b728-d8cb2c336a60",
+      "DisplayName": "FetchAPI1",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
