@@ -27,29 +27,7 @@ namespace FetchAPI1
             InitializeComponent();
             
         }
-        /*public DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
-        }*/
+        
         private async void fetchAPI(int page = 0 , int limit = 5)
         {
             HttpClient client = new HttpClient();
@@ -70,12 +48,7 @@ namespace FetchAPI1
             {
                 var content = await response.Content.ReadAsStringAsync();
                 Data da = JsonConvert.DeserializeObject<Data>(content);
-                //DataTable dt = new DataTable();
-                //dt = ToDataTable<Person>(da.data);
-                //dt.Columns.Add("Pic", typeof(byte[]));
-                //dt.Columns.Add("Pic", Type.GetType("System.Byte[]"));
-                //dt.Columns.Add("Pic");
-
+               
                 foreach (Person person in da.data)
                 {
                     DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
@@ -85,31 +58,23 @@ namespace FetchAPI1
                     row.Cells[2].Value = person.firstName;
                     row.Cells[3].Value = person.lastName;
 
-
                     HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(person.picture.ToString());
                     myRequest.Method = "GET";
                     HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
                     System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(myResponse.GetResponseStream());
                     myResponse.Close();
 
-                    
-
                     row.Cells[4].Value = bmp;
                     dataGridView1.Rows.Add(row);
                 }
-                
-                
             }
             else MessageBox.Show("GET FAIL , TRY AGAIN ");
-
         }
        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ActiveControl = textBox1;
             dataGridView1.Dock = DockStyle.Fill;
-            
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -129,7 +94,6 @@ namespace FetchAPI1
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

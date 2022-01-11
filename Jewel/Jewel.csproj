@@ -120,6 +120,12 @@
     <Compile Include="api\JewelHttpClient.cs" />
     <Compile Include="api\UserHttpClient.cs" />
     <Compile Include="Cloudinary.cs" />
+    <Compile Include="JewelViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JewelViewForm.Designer.cs">
+      <DependentUpon>JewelViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,10 +144,14 @@
     <Compile Include="ManagementForm.Designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyStaticClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddJewelForm.resx">
       <DependentUpon>AddJewelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JewelViewForm.resx">
+      <DependentUpon>JewelViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -160,6 +170,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -177,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\benres.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\benres1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

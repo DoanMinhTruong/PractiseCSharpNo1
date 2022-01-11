@@ -17,13 +17,14 @@ namespace Jewel
     {
         private api.UserAPI rqUser;
         private mainForm mf;
-        
+
+
+
         public loginForm()
         {
             InitializeComponent();
             rqUser = new api.UserAPI();
-            mf = new mainForm();
-           // lf = new loginForm();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,10 +68,12 @@ namespace Jewel
                 Properties.Settings.Default.accessToken = dict["access"];
                 Properties.Settings.Default.refreshToken = dict["refresh"];
                 Properties.Settings.Default.userId = rqUser.getUserID(dict["access"]);
-                MessageBox.Show("Login Success");
-                this.Close();
+                mf = new mainForm();
                 mf.Show();
                 
+
+
+
             }
             else MessageBox.Show("Login Fail");
         }
@@ -130,6 +133,11 @@ namespace Jewel
             txtRPassword.Text = "";
             panel2.Visible = false;
             panel1.Visible = true;
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -18,8 +18,8 @@ namespace Jewel
         {
             cloudinary = new Cloudinary();
             account = new Account(CLOUD_NAME, API_KEY, API_SECRET);
-            //var x = cloudinary.Api
         }
+       
 
     }
 }

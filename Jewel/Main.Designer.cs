@@ -33,12 +33,12 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnAddJewel = new System.Windows.Forms.Button();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.created_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.action = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,16 +47,17 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
-            this.id,
             this.name,
             this.price,
             this.category,
             this.created_by,
-            this.image});
+            this.image,
+            this.action});
             this.dataGridView1.Location = new System.Drawing.Point(12, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(897, 498);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cbbCategory
             // 
@@ -94,11 +95,6 @@
             this.No.HeaderText = "No";
             this.No.Name = "No";
             // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            // 
             // name
             // 
             this.name.HeaderText = "name";
@@ -124,6 +120,16 @@
             this.image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.image.HeaderText = "image";
             this.image.Name = "image";
+            this.image.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // action
+            // 
+            this.action.HeaderText = "action";
+            this.action.Name = "action";
+            this.action.Text = "View";
+            this.action.UseColumnTextForButtonValue = true;
+            this.action.Width = 50;
             // 
             // mainForm
             // 
@@ -151,12 +157,12 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnAddJewel;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_by;
-        private System.Windows.Forms.DataGridViewImageColumn image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn image;
+        private System.Windows.Forms.DataGridViewButtonColumn action;
     }
 }
 
